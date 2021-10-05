@@ -56,15 +56,11 @@ RUN unzip /tmp/v2.0.zip
 # npy_matlab
 RUN git clone https://github.com/kwikteam/npy-matlab.git
 
-## ecephys_spike_sorting
-#RUN git clone https://github.com/Yambottle/ecephys_spike_sorting.git
+# ecephys_spike_sorting
+RUN git clone https://github.com/ttngu207/ecephys_spike_sorting.git
 #RUN pip install ./ecephys_spike_sorting/
 #RUN pip install argschema==1.* marshmallow==2.*
 
 # Workflow Array Ephys
 RUN git clone https://github.com/ttngu207/sciops-demo-workflow-1.git
 RUN pip install ./sciops-demo-workflow-1/
-
-# Neuropixel Toolkit for testing
-RUN git clone https://github.com/Yambottle/neuropixels-toolkit.git
-RUN pip install python-dotenv h5py
