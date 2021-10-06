@@ -46,9 +46,8 @@ services:
       - ${ROOT_DATA_DIR}:/home/${MATLAB_USER}/workflow_root_data
       - ${PROCESSED_DATA_DIR}:/home/${MATLAB_USER}/workflow_processed_data
       - ./apt_requirements.txt:/tmp/apt_requirements.txt
-    ports: # only necessary for GUI image
-      - "8889:8888"
     mac_address: $MATLAB_HOSTID
+    scale: ${WORKER_COUNT:-1}
     command:
       - /bin/bash
       - -c
