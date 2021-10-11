@@ -32,8 +32,8 @@ DJ_PASS=<PASSWORD>
 DATABASE_PREFIX=<USERNAME>_
 
 # Data Input/Output -> Local Mapping
-ROOT_DATA_DIR=/mnt/efs-incf/incf2021
-PROCESSED_DATA_DIR=/home/ubuntu/workflow_processed_data
+ROOT_DATA_DIR=/mnt/efs-sciops/<USERNAME>/inbox
+PROCESSED_DATA_DIR=/mnt/efs-sciops/<USERNAME>/outbox
 
 # In-container Module Directories
 ecephys_directory=/home/muser/neuropixel/ecephys_spike_sorting/ecephys_spike_sorting
