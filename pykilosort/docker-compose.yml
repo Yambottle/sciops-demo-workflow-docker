@@ -52,7 +52,11 @@ services:
       - /bin/bash
       - -c
       - |
+        sed -i 's/cupy/cupy-cuda110/' /home/muser/neuropixel/pykilosort/requirements.txt &&
+        pip install -r /home/muser/neuropixel/pykilosort/requirements.txt &&
+        pip install phylib pyqtgraph pyqt5 &&
+        pip install /home/muser/neuropixel/pykilosort/ &&
         cd /home/muser/neuropixel/Kilosort-3.0/CUDA && matlab -r "mexGPUall;quit" &&
         cd /home/muser/neuropixel/Kilosort-2.5/CUDA && matlab -r "mexGPUall;quit" &&
-        cd /home/muser/neuropixel/sciops-demo-workflow-1 && python workflow/process.py &
+        cd /home/muser/neuropixel/sciops-demo-workflow-1 && python workflow/process.py &&
         tail -f /dev/null

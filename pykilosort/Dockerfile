@@ -17,7 +17,7 @@ ENV LD_LIBRARY_PATH /usr/local/cuda-11.0/lib64:${LD_LIBRARY_PATH}
 # MATLAB Python API
 RUN cd /home/muser/.MATLAB/extern/engines/python && python setup.py install
 RUN apt-get install -y tk
-ENV PATH /home/muser/.MATLAB/bin:{$PATH}
+ENV PATH /home/muser/.MATLAB/bin:${PATH}
 
 # Mounted Data Volume Permission
 RUN groupadd ubuntu --gid 1000
@@ -54,8 +54,8 @@ RUN wget -P /tmp/ https://github.com/MouseLand/Kilosort/archive/refs/tags/v2.0.z
 RUN unzip /tmp/v2.0.zip
 
 # pykilosort
-
 RUN git clone https://github.com/MouseLand/pykilosort.git
+# install package requires CUDA, just like kilosort CUDA mexGPU 
 
 # npy_matlab
 RUN git clone https://github.com/kwikteam/npy-matlab.git

@@ -17,7 +17,7 @@ ENV LD_LIBRARY_PATH /usr/local/cuda-11.0/lib64:${LD_LIBRARY_PATH}
 # MATLAB Python API
 RUN cd /home/muser/.MATLAB/extern/engines/python && python setup.py install
 RUN apt-get install -y tk
-ENV PATH /home/muser/.MATLAB/bin:{$PATH}
+ENV PATH /home/muser/.MATLAB/bin:${PATH}
 
 # Mounted Data Volume Permission
 RUN groupadd ubuntu --gid 1000
