@@ -52,10 +52,22 @@ RUN unzip /tmp/v2.5.zip
 # 2.0
 RUN wget -P /tmp/ https://github.com/MouseLand/Kilosort/archive/refs/tags/v2.0.zip
 RUN unzip /tmp/v2.0.zip
+# mexGPU build require cuda and matlab in the temp container
+# cuda can use --gpu(docker run) or runtime: nvidia(docker-compose)
+# matlab has to make sure this temp container has the matlab license and the mac address registered on the license
+# the only difficulty is to set mac_address for the temp container
+# TODO - find out how to set mac_address while docker-compose build
+
+WORKDIR /home/muser/neuropixel
 
 # pykilosort
 RUN git clone https://github.com/MouseLand/pykilosort.git
-# install package requires CUDA, just like kilosort CUDA mexGPU 
+RUN pip install cupy-cuda110
+# pip install packages that requires cuda build, will be enable in docker run --gpu or docker-compose.yaml runtime: nvidia
+RUN sed -i 's/cupy/cupy-cuda110/' /home/muser/neuropixel/pykilosort/requirements.txt && \
+        pip install -r /home/muser/neuropixel/pykilosort/requirements.txt && \
+        pip install phylib pyqtgraph pyqt5 && \
+        pip install /home/muser/neuropixel/pykilosort/
 
 # npy_matlab
 RUN git clone https://github.com/kwikteam/npy-matlab.git
