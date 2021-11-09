@@ -45,7 +45,7 @@ services:
       - /home/ubuntu/neuropixel/data_for_ecephys:/home/muser/neuropixel/data_for_ecephys
       - ${ROOT_DATA_DIR}:/home/${MATLAB_USER}/workflow_root_data
       - ${PROCESSED_DATA_DIR}:/home/${MATLAB_USER}/workflow_processed_data
-      - ./apt_requirements.txt:/tmp/apt_requirements.txt
+      #- ./apt_requirements.txt:/tmp/apt_requirements.txt
     mac_address: $MATLAB_HOSTID
     scale: ${WORKER_COUNT:-1}
     command:

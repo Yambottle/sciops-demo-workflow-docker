@@ -3,7 +3,8 @@ FROM drewyangdev/matlab:R2021a-GUI
 USER root
 # system level dependencies
 RUN apt-get update
-RUN apt-get install -y vim wget curl
+COPY ./apt_requirements.txt /tmp/apt_requirements.txt
+RUN xargs apt-get install -y < /tmp/apt_requirements.txt
 
 # NVIDIA driver is managed by nvidia-container-toolkit and nvidia-docker-2
 # https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#setting-up-nvidia-container-toolkit
