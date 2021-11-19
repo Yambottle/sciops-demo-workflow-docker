@@ -1,8 +1,10 @@
-# SciOps Demo Workflow Docker
+# SciOps Demo Workflow Docker[Legacy]
 
 ***Drew Yang @ DataJoint*** | ***2021.10.05***
 
 ---
+
+## Now this repo is included in [SciOps Demo Workflow](https://github.com/vathes/sciops-demo-workflow-1)
 
 ## Prerequisite
 Build the base [MATLAB image](https://github.com/Yambottle/matlab) at first.
